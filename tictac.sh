@@ -381,7 +381,7 @@ do
          fi
 
 		fi
-
+	playturn=0
 	fi
 	
 	if [[ $isEmpty -eq 0 ]] && [[ $foundWinner -eq 0 ]]
