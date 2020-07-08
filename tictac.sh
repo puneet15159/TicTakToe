@@ -39,3 +39,8 @@ fi
 
 echo "computer Chose $computerLetter"
 echo "player chose $playerLetter"
+
+echo "E -----> Empty"
+echo ${rowOne[@]}
+echo ${rowTwo[@]}
+echo ${rowThree[@]}
