@@ -122,18 +122,21 @@ do
 			do
 				if [[ $rowOne[$i] -eq E ]]
 				then
-					rowOne[$i]=$(($computerLetter))
+					#rowOne[$i]=$(($computerLetter))
 					if [[ $i -eq 0 ]] && [[ $rowOne[1] -eq $computerLetter ]] && [[ $rowOne[2] -eq $computerLetter ]]
 					then
 						foundWinner=1
+						rowOne[$i]=$(($computerLetter))
 						break
 					elif [[ $i -eq 0 ]] && [[ $rowTwo[0] -eq $computerLetter ]] && [[ $rowThree[0] -eq $computerLetter ]]
 	            then
    	            foundWinner=1
+						rowOne[$i]=$(($computerLetter))
       	         break
 					elif [[ $i -eq 0 ]] && [[ $rowTwo[1] -eq $computerLetter ]] && [[ $rowThree[2] -eq $computerLetter ]]
             	then
 	               foundWinner=1
+						rowOne[$i]=$(($computerLetter))
    	            break
 
 					fi
@@ -141,28 +144,40 @@ do
                if [[ $i -eq 1 ]] && [[ $rowOne[0] -eq $computerLetter ]] && [[ $rowOne[2] -eq $computerLetter ]]
                then
                   foundWinner=1
+						rowOne[$i]=$(($computerLetter))
                   break
                elif [[ $i -eq 1 ]] && [[ $rowTwo[1] -eq $computerLetter ]] && [[ $rowThree[1] -eq $computerLetter ]]
                then
                   foundWinner=1
+                  rowOne[$i]=$(($computerLetter))
+
                   break
                fi
 
                if [[ $i -eq 2 ]] && [[ $rowOne[0] -eq $computerLetter ]] && [[ $rowOne[1] -eq $computerLetter ]]
                then
                   foundWinner=1
+                  rowOne[$i]=$(($computerLetter))
+
                   break
                elif [[ $i -eq 2 ]] && [[ $rowTwo[2] -eq $computerLetter ]] && [[ $rowThree[2] -eq $computerLetter ]]
                then
                   foundWinner=1
+                  rowOne[$i]=$(($computerLetter))
+
                   break
                elif [[ $i -eq 2 ]] && [[ $rowTwo[1] -eq $computerLetter ]] && [[ $rowThree[0] -eq $computerLetter ]]
                then
                   foundWinner=1
+                  rowOne[$i]=$(($computerLetter))
+
                   break
 
                fi
-
+					if [[ $rowOne[$i] -eq E ]]
+					then
+						 rowOne[$i]=$(($computerLetter))
+					fi
 				fi
 			done
 		
@@ -172,41 +187,61 @@ do
          do
             if [[ $rowTwo[$i] -eq E ]]
             then
-               rowTwo[$i]=$(($computerLetter))
+               #rowTwo[$i]=$(($computerLetter))
                if [[ $i -eq 0 ]] && [[ $rowOne[0] -eq $computerLetter ]] && [[ $rowOne[0] -eq $computerLetter ]]
                then
                   foundWinner=1
+#                  rowOne[$i]=$(($computerLetter))
+
+                  rowTwo[$i]=$(($computerLetter))
+
                   break
                elif [[ $i -eq 0 ]] && [[ $rowTwo[1] -eq $computerLetter ]] && [[ $rowTwo[2] -eq $computerLetter ]]
                then
                   foundWinner=1
+
+                  rowTwo[$i]=$(($computerLetter))
+
                   break
                fi
                # check for 2 position
                if [[ $i -eq 1 ]] && [[ $rowTwo[0] -eq $computerLetter ]] && [[ $rowTwo[2] -eq $computerLetter ]]
                then
                   foundWinner=1
+                  rowTwo[$i]=$(($computerLetter))
+
                   break
                elif [[ $i -eq 1 ]] && [[ $rowOne[1] -eq $computerLetter ]] && [[ $rowThree[1] -eq $computerLetter ]]
                then
                   foundWinner=1
+                  rowTwo[$i]=$(($computerLetter))
+
                   break
                elif [[ $i -eq 1 ]] && [[ $rowOne[0] -eq $computerLetter ]] && [[ $rowThree[2] -eq $computerLetter ]]
                then
                   foundWinner=1
+                  rowTwo[$i]=$(($computerLetter))
+
 						break             
                fi
 
                if [[ $i -eq 2 ]] && [[ $rowTwo[0] -eq $computerLetter ]] && [[ $rowTwo[1] -eq $computerLetter ]]
                then
                   foundWinner=1
+                  rowTwo[$i]=$(($computerLetter))
+
                   break
                elif [[ $i -eq 2 ]] && [[ $rowOne[2] -eq $computerLetter ]] && [[ $rowThree[2] -eq $computerLetter ]]
                then
                   foundWinner=1
+                  rowTwo[$i]=$(($computerLetter))
+
                   break
                fi
-
+					if [[ $rowTwo[$i] -eq E ]]
+					then
+						rowTwo[$i]=$(($computerLetter))
+					fi
             fi
          done
       elif [[ $rowThreeIsEmpty ]]
@@ -215,18 +250,24 @@ do
          do
             if [[ $rowThree[$i] -eq E ]]
             then
-               rowThree[$i]=$(($computerLetter))
+               #rowThree[$i]=$(($computerLetter))
                if [[ $i -eq 0 ]] && [[ $rowThree[1] -eq $computerLetter ]] && [[ $rowThree[2] -eq $computerLetter ]]
                then
                   foundWinner=1
+                  rowThree[$i]=$(($computerLetter))
+
                   break
                elif [[ $i -eq 0 ]] && [[ $rowTwo[1] -eq $computerLetter ]] && [[ $rowThree[2] -eq $computerLetter ]]
                then
                   foundWinner=1
+                  rowThree[$i]=$(($computerLetter))
+
                   break
                elif [[ $i -eq 0 ]] && [[ $rowTwo[0] -eq $computerLetter ]] && [[ $rowThree[0] -eq $computerLetter ]]
                then
                   foundWinner=1
+                  rowThree[$i]=$(($computerLetter))
+
                   break
 
                fi
@@ -234,28 +275,40 @@ do
                if [[ $i -eq 1 ]] && [[ $rowOne[1] -eq $computerLetter ]] && [[ $rowOne[1] -eq $computerLetter ]]
                then
                   foundWinner=1
+                  rowThree[$i]=$(($computerLetter))
+
                   break
                elif [[ $i -eq 1 ]] && [[ $rowThree[0] -eq $computerLetter ]] && [[ $rowThree[2] -eq $computerLetter ]]
                then
                   foundWinner=1
+                  rowThree[$i]=$(($computerLetter))
+
                   break
                fi
 
                if [[ $i -eq 2 ]] && [[ $rowOne[0] -eq $computerLetter ]] && [[ $rowTwo[1] -eq $computerLetter ]]
                then
                   foundWinner=1
+                  rowThree[$i]=$(($computerLetter))
+
                   break
                elif [[ $i -eq 2 ]] && [[ $rowThree[1] -eq $computerLetter ]] && [[ $rowThree[0] -eq $computerLetter ]]
                then
                   foundWinner=1
+                  rowThree[$i]=$(($computerLetter))
+
                   break
                elif [[ $i -eq 2 ]] && [[ $rowTwo[2] -eq $computerLetter ]] && [[ $rowOne[2] -eq $computerLetter ]]
                then
                   foundWinner=1
+                  rowThree[$i]=$(($computerLetter))
+
                   break
 
                fi
-
+					if [[ $rowThree[$i] -eq E ]]
+					then
+						rowThree[$i]=$(($computerLetter))
             fi
          done
 		fi
