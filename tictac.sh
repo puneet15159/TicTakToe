@@ -53,6 +53,242 @@ echo ${rowTwo[@]}
 echo ${rowThree[@]}
 }
 
+playerCanWInFor00=0
+playerCanWInFor01=0
+playerCanWInFor02=0
+
+playerCanWInFor10=0
+playerCanWInFor11=0
+playerCanWInFor12=0
+
+playerCanWInFor20=0
+playerCanWInFor21=0
+playerCanWInFor22=0
+
+checkFor00(){
+	if [[ $rowOne[1] -eq $1 ]] && [[ $rowOne[2] -eq $1 ]]
+	then
+		opponentWinIndexRow=0
+		oppponentWinIndexCol=0
+	elif [[ $rowTwo[0] -eq $1 ]] && [[ $rowThree[0] -eq $1 ]]
+	then
+		opponentWinIndexRow=0
+      oppponentWinIndexCol=0
+	elif [[ $rowTwo[1] -eq $1 ]] && [[ $rowThree[2] -eq $1 ]]
+   then
+      opponentWinIndexRow=0
+      oppponentWinIndexCol=0
+
+	fi
+
+	if [[ $opponentWinIndexRow -eq 0 ]] && [[ $oppponentWinIndexCol -eq 0 ]]
+	then
+		playerCanWinFor00=1
+	else
+		playerCanWinFor00=0
+	fi
+
+}
+
+checkFor01(){
+   if [[ $rowOne[0] -eq $1 ]] && [[ $rowOne[2] -eq $1 ]]
+   then
+      opponentWinIndexRow=0
+      oppponentWinIndexCol=1
+   elif [[ $rowTwo[1] -eq $1 ]] && [[ $rowThree[1] -eq $1 ]]
+   then
+      opponentWinIndexRow=0
+      oppponentWinIndexCol=1
+   fi
+
+   if [[ $opponentWinIndexRow -eq 0 ]] && [[ $oppponentWinIndexCol -eq 1 ]]
+   then
+      playerCanWinFor01=1
+   else
+      playerCanWinFor01=0
+   fi
+
+}
+
+
+checkFor02(){
+   if [[ $rowOne[0] -eq $1 ]] && [[ $rowOne[1] -eq $1 ]]
+   then
+      opponentWinIndexRow=0
+      oppponentWinIndexCol=2
+   elif [[ $rowTwo[2] -eq $1 ]] && [[ $rowThree[2] -eq $1 ]]
+   then
+      opponentWinIndexRow=0
+      oppponentWinIndexCol=2
+   elif [[ $rowTwo[1] -eq $1 ]] && [[ $rowThree[0] -eq $1 ]]
+   then
+      opponentWinIndexRow=0
+      oppponentWinIndexCol=2
+
+   fi
+
+   if [[ $opponentWinIndexRow -eq 0 ]] && [[ $oppponentWinIndexCol -eq 2 ]]
+   then
+      playerCanWinFor02=1
+   else
+      playerCanWinFor02=0
+   fi
+
+}
+
+
+checkFor10(){
+   if [[ $rowTwo[1] -eq $1 ]] && [[ $rowTwo[2] -eq $1 ]]
+   then
+      opponentWinIndexRow=1
+      oppponentWinIndexCol=0
+   elif [[ $rowOne[0] -eq $1 ]] && [[ $rowThree[0] -eq $1 ]]
+   then
+      opponentWinIndexRow=1
+      oppponentWinIndexCol=0
+   fi
+
+   if [[ $opponentWinIndexRow -eq 1 ]] && [[ $oppponentWinIndexCol -eq 0 ]]
+   then
+      playerCanWinFor10=1
+   else
+      playerCanWinFor10=0
+   fi
+
+}
+
+checkFor11(){
+   if [[ $rowTwo[0] -eq $1 ]] && [[ $rowTwo[2] -eq $1 ]]
+   then
+      opponentWinIndexRow=1
+      oppponentWinIndexCol=1
+   elif [[ $rowOne[1] -eq $1 ]] && [[ $rowThree[1] -eq $1 ]]
+   then
+      opponentWinIndexRow=1
+      oppponentWinIndexCol=1
+   elif [[ $rowOne[0] -eq $1 ]] && [[ $rowThree[2] -eq $1 ]]
+   then
+      opponentWinIndexRow=1
+      oppponentWinIndexCol=1
+
+   fi
+
+   if [[ $opponentWinIndexRow -eq 1 ]] && [[ $oppponentWinIndexCol -eq 1 ]]
+   then
+      playerCanWinFor11=1
+   else
+      playerCanWinFor11=0
+   fi
+
+}
+
+checkFor12(){
+   if [[ $rowTwo[0] -eq $1 ]] && [[ $rowTwo[1] -eq $1 ]]
+   then
+      opponentWinIndexRow=1
+      oppponentWinIndexCol=2
+   elif [[ $rowOne[2] -eq $1 ]] && [[ $rowThree[2] -eq $1 ]]
+   then
+      opponentWinIndexRow=1
+      oppponentWinIndexCol=2
+   fi
+
+   if [[ $opponentWinIndexRow -eq 1 ]] && [[ $oppponentWinIndexCol -eq 2 ]]
+   then
+      playerCanWinFor12=1
+   else
+      playerCanWinFor12=0
+   fi
+
+}
+
+checkFor20(){
+   if [[ $rowThree[1] -eq $1 ]] && [[ $rowThree[2] -eq $1 ]]
+   then
+      opponentWinIndexRow=2
+      oppponentWinIndexCol=0
+   elif [[ $rowOne[0] -eq $1 ]] && [[ $rowTwo[0] -eq $1 ]]
+   then
+      opponentWinIndexRow=2
+      oppponentWinIndexCol=0
+   elif [[ $rowTwo[1] -eq $1 ]] && [[ $rowOne[2] -eq $1 ]]
+   then
+      opponentWinIndexRow=2
+      oppponentWinIndexCol=0
+
+   fi
+
+   if [[ $opponentWinIndexRow -eq 2 ]] && [[ $oppponentWinIndexCol -eq 0 ]]
+   then
+      playerCanWinFor20=1
+   else
+      playerCanWinFor20=0
+   fi
+
+}
+
+checkFor21(){
+   if [[ $rowThree[0] -eq $1 ]] && [[ $rowThree[2] -eq $1 ]]
+   then
+      opponentWinIndexRow=2
+      oppponentWinIndexCol=1
+   elif [[ $rowTwo[1] -eq $1 ]] && [[ $rowOne[1] -eq $1 ]]
+   then
+      opponentWinIndexRow=2
+      oppponentWinIndexCol=1
+   fi
+
+   if [[ $opponentWinIndexRow -eq 2 ]] && [[ $oppponentWinIndexCol -eq 1 ]]
+   then
+      playerCanWinFor21=1
+   else
+      playerCanWinFor21=0
+   fi
+
+}
+
+checkFor22(){
+   if [[ $rowThree[0] -eq $1 ]] && [[ $rowThree[1] -eq $1 ]]
+   then
+      opponentWinIndexRow=2
+      oppponentWinIndexCol=2
+   elif [[ $rowTwo[2] -eq $1 ]] && [[ $rowOne[2] -eq $1 ]]
+   then
+      opponentWinIndexRow=2
+      oppponentWinIndexCol=2
+   elif [[ $rowTwo[1] -eq $1 ]] && [[ $rowOne[0] -eq $1 ]]
+   then
+      opponentWinIndexRow=2
+      oppponentWinIndexCol=2
+
+   fi
+
+   if [[ $opponentWinIndexRow -eq 2 ]] && [[ $oppponentWinIndexCol -eq 2 ]]
+   then
+      playerCanWinFor22=1
+   else
+      playerCanWinFor22=0
+   fi
+
+}
+
+
+
+checkOpponentWinForComputer(){
+	
+	checkFor00 playerLetter
+	checkFor01 playerLetter
+	checkFor02 playerLetter
+
+	checkFor10 playerLetter
+	checkFor11 playerLetter
+	checkFor12 playerLetter
+
+	checkFor20 playerLetter
+	checkFor21 playerLetter
+	checkFor22 playerLetter
+}
+
 computerTurn=0
 FindTurnAndChooseLetter
 rowOneIsEmpty=1
