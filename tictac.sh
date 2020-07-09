@@ -70,6 +70,27 @@ isEmptyCorner02=0
 isEmptyCorner20=0
 isEmptyCorner22=0
 
+checkSides(){
+	if [[ $rowOne[0] -ne E ]] && [[ $rowOne[2] -ne E ]] && [[ $rowThree[0] -ne E ]] && [[ $rowThree[2] -ne E ]] && [[ $rowTwo[1] -ne E ]]
+   then
+      if [[ $rowOne[1] -eq E ]]
+      then
+         rowOne[1]=$(($computerLetter))
+		elif [[ $rowTwo[0] -eq E ]]
+		then
+			rowTwo[0]=$(($computerLetter))
+      elif [[ $rowTwo[2] -eq E ]]
+      then
+         rowTwo[2]=$(($computerLetter))
+      elif [[ $rowThree[1] -eq E ]]
+      then
+         rowThree[1]=$(($computerLetter))
+
+      fi
+   fi
+
+}
+
 checkCentre(){
 	if [[ $rowOne[0] -ne E ]] && [[ $rowOne[2] -ne E ]] && [[ $rowThree[0] -ne E ]] && [[ $rowThree[2] -ne E ]]
 	then
