@@ -70,6 +70,16 @@ isEmptyCorner02=0
 isEmptyCorner20=0
 isEmptyCorner22=0
 
+checkCentre(){
+	if [[ $rowOne[0] -ne E ]] && [[ $rowOne[2] -ne E ]] && [[ $rowThree[0] -ne E ]] && [[ $rowThree[2] -ne E ]]
+	then
+		if [[ $rowTwo[1] -eq E ]]
+		then
+			rowTwo[1]=$(($computerLetter))
+		fi
+	fi
+}
+
 checkForCorner00(){
 
 	if [[ $rowOne[0] -eq E ]]
