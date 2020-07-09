@@ -65,6 +65,48 @@ playerCanWInFor20=0
 playerCanWInFor21=0
 playerCanWInFor22=0
 
+isEmptyCorner00=0
+isEmptyCorner02=0
+isEmptyCorner20=0
+isEmptyCorner22=0
+
+checkForCorner00(){
+
+	if [[ $rowOne[0] -eq E ]]
+	then
+		isEmptyCorner00=1
+	fi
+
+}
+
+checkForCorner02(){
+
+   if [[ $rowOne[2] -eq E ]]
+   then
+      isEmptyCorner02=1
+   fi
+
+}
+
+checkForCorner20(){
+
+   if [[ $rowThree[0] -eq E ]]
+   then
+      isEmptyCorner20=1
+   fi
+
+}
+
+checkForCorner22(){
+
+   if [[ $rowThree[2] -eq E ]]
+   then
+      isEmptyCorner22=1
+   fi
+
+}
+
+
 checkFor00(){
 	if [[ $rowOne[1] -eq $1 ]] && [[ $rowOne[2] -eq $1 ]]
 	then
