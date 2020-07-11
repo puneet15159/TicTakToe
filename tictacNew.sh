@@ -212,6 +212,7 @@ playComputer(){
       
  	for (( i=0; i<$numRows; i++ ))
       do
+		#	winFound=-1
          for (( j=0; j<$numColumns; j++ ))
          do
 
@@ -224,8 +225,22 @@ playComputer(){
          			echo "Computer Won the the game"
 						displayBoard
 						winnerFound=1
+						winFound=-1
                   return
                fi
+
+					winFound=-1
+					checkWin $i $j $playerLetter
+					echo "test"
+					if [[ $winFound -eq 1 ]]
+               then
+						echo "test"
+                  board[$i,$j]=$computerLetter
+                  winnerFound=-1
+                  #winFound=-1
+                  return
+               fi
+
 
             fi
 
@@ -238,6 +253,7 @@ playComputer(){
 		checkCorner
 		if [[ $cornerFound -eq 1 ]]
 		then
+			winnerFound=-1
 			return
 		fi
 	fi
@@ -247,6 +263,7 @@ playComputer(){
       checkCentre
       if [[ $centreFound -eq 1 ]]
       then
+			winnerFound=-1
          return
       fi
 
@@ -257,6 +274,7 @@ playComputer(){
       checkSide
       if [[ $sideFound -eq 1 ]]
       then
+			winnerFound=-1
          return
       fi
 
@@ -265,6 +283,7 @@ playComputer(){
     if [[ $computerTurnDone -eq -1 ]]
     then
          echo "Game Over"
+			winnerFound=1
     fi
 
 
